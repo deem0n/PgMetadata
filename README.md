@@ -183,12 +183,12 @@ different tables or schemas.
 ## Optional: build a FAMIX model
 
 Use the tested **Pharo 13/Moose 13** environment. The FAMIXNGSQL migration is
-published on `pharo13-pgmetadata-integration`; its default `master` is older.
+included in `master`; the merged development branches have been retired.
 
 ```smalltalk
 Metacello new
     baseline: 'FAMIXNGSQL';
-    repository: 'github://deem0n/FAMIXNGSQL:pharo13-pgmetadata-integration/src';
+    repository: 'github://deem0n/FAMIXNGSQL:master/src';
     load: 'Core'.
 ```
 
@@ -241,7 +241,7 @@ every SQL/PL/pgSQL body was successfully parsed: unsupported syntax, unresolved
 names, dynamic SQL and timeouts are reported. The September 2026 `mi` run still
 had 520 parser syntax failures; those are parser limitations, not PostgreSQL
 reporting invalid stored code. See the
-[migration audit](https://github.com/deem0n/FAMIXNGSQL/blob/pharo13-pgmetadata-integration/docs/pharo13-migration-audit.md)
+[migration audit](https://github.com/deem0n/FAMIXNGSQL/blob/master/docs/pharo13-migration-audit.md)
 for measured coverage and remaining work.
 
 ## Run the tests
