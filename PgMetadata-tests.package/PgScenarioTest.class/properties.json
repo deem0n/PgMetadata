@@ -1,15 +1,17 @@
 {
-	"commentStamp" : "GabrielDarbord 11/16/2022 17:04",
-	"super" : "TestCase",
-	"category" : "PgMetadata-tests",
-	"classinstvars" : [ ],
-	"pools" : [ ],
-	"classvars" : [ ],
-	"instvars" : [
+	"commentStamp": "GabrielDarbord 11/16/2022 17:04",
+	"super": "TestCase",
+	"category": "PgMetadata-tests",
+	"classinstvars": [],
+	"pools": [],
+	"classvars": [
+		"ConnectionParameters"
+	],
+	"instvars": [
 		"db",
 		"client",
 		"schemaName"
 	],
-	"name" : "PgScenarioTest",
-	"type" : "normal"
+	"name": "PgScenarioTest",
+	"type": "normal"
 }

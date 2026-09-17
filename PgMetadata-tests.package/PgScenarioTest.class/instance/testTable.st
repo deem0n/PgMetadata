@@ -17,5 +17,5 @@ INSERT INTO {1}.employees (id,last_name,first_name,email,department,salary) VALU
 	db extractObjects.
 	schema := db getSchemas detect: [ :s | s name = schemaName ].
 	self
-		shouldnt: (db getTables detect: [ :t | t namespace = schema ])
+		shouldnt: [ db getTables detect: [ :t | t namespace = schema ] ]
 		raise: NotFound

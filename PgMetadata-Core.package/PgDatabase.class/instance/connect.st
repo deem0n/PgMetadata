@@ -1,6 +1,9 @@
 connection
 connect
-	connection := (P3Client new url: (parameters computeURL)).
+	connection := parameters newClient.
 	connection connect.
-	self postgresql: (PgPostgresql about: self).
-	self extractObjects
+	connection execute: 'BEGIN ISOLATION LEVEL REPEATABLE READ READ ONLY'.
+	[
+		self postgresql: (PgPostgresql about: self).
+		self extractObjects
+	] ensure: [ connection execute: 'ROLLBACK' ]

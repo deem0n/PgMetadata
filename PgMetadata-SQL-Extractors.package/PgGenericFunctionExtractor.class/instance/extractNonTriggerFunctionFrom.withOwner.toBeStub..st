@@ -1,6 +1,6 @@
 action
 extractNonTriggerFunctionFrom: func withOwner: owner toBeStub: isStub
-	| argtypes function argnames |
+	| argtypes function argnames argmodes |
 	function := (func at: #prokind) = 'a'
 		ifTrue: [ SqlAggregateFunction
 				oid: (func at: #oid)
@@ -13,12 +13,14 @@ extractNonTriggerFunctionFrom: func withOwner: owner toBeStub: isStub
 				owner: owner
 				stub: isStub ].
 	argnames := func at: #proargnames.
-	"Arguments and types are only extracted if function is not stub"
-	(isStub not and: [ argnames isNotNil ])
-		ifTrue: [ argtypes := self extractArgumentsTypesFrom: func.
-			argnames
-				with: argtypes
-				do: [ :argname :argtype | 
-					function
-						addArgument: (SqlArgument name: argname datatype: argtype owner: function) ] ].
+	argmodes := func at: #proargmodes.
+	argtypes := self extractArgumentsTypesFrom: func.
+	argtypes withIndexDo: [ :argtype :index |
+		| argumentName argument |
+		argumentName := argnames ifNil: [ '' ] ifNotNil: [ argnames at: index ].
+		argumentName ifEmpty: [ argumentName := '$' , index asString ].
+		argument := SqlArgument name: argumentName datatype: argtype owner: function.
+		argument position: index;
+			mode: (argmodes ifNil: [ 'i' ] ifNotNil: [ argmodes at: index ]).
+		function addArgument: argument ].
 	^ function

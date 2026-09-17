@@ -10,7 +10,7 @@ extract
 					ownertable := self database
 						tableReferenceOf: (result at: #constrained_table).
 					constraint := (constraintClasses at: (result at: #contype))
-						oid: nil
+						oid: (result at: #oid)
 						name: (result at: #constraint_name)
 						owner: ownertable
 						namespace: (self database schemaReferenceOf: (result at: #namespace_oid)).

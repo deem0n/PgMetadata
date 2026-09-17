@@ -1,7 +1,6 @@
 action
 extractMetadata
 	| db |
-	db := PgDatabase name: 'appsi' connection: self connection.
-	db connect.
-	db close.
+	db := PgDatabase name: self database connection: self connection.
+	[ db connect ] ensure: [ db close ].
 	^db

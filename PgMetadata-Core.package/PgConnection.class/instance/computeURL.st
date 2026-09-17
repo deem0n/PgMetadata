@@ -1,19 +1,10 @@
 action
 computeURL
-	| string |
-   "psql://postgres:postgres@postgres:5432/postgres"
-	
-	string := WriteStream on: String new.
-	string 
-		nextPutAll: 'psql://';
-		nextPutAll: self user;
-		nextPutAll: ':';
-		nextPutAll: self password;
-		nextPutAll: '@';		
-		nextPutAll: self hostname;	
-		nextPutAll: ':';		
-		nextPutAll: (self port asString);
-		nextPutAll: '/';
-		nextPutAll: self database.
-		
-	^string contents
+	^ (ZnUrl new
+		scheme: 'psql';
+		host: self hostname;
+		port: self port;
+		username: self user;
+		password: self password;
+		addPathSegment: self database;
+		yourself) asString

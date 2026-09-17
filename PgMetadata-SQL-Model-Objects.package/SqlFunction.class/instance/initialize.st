@@ -1,5 +1,5 @@
 initialize-release
 initialize
 	super initialize.
-	self arguments: Set new.
+	self arguments: OrderedCollection new.
 	self dependencies: Set new.

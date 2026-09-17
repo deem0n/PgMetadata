@@ -1,0 +1,11 @@
+{
+	"commentStamp": "",
+	"super": "PgExtractor",
+	"category": "PgMetadata-SQL-Extractors",
+	"classinstvars": [],
+	"pools": [],
+	"classvars": [],
+	"instvars": [],
+	"name": "PgConstraintRoutineExtractor",
+	"type": "normal"
+}

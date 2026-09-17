@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "OlivierAuverlot 6/16/2017 11:21",
-	"super" : "PgClassExtractor",
+	"super" : "PgViewExtractor",
 	"category" : "PgMetadata-SQL-Extractors",
 	"classinstvars" : [ ],
 	"pools" : [ ],

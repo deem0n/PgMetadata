@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "OlivierAuverlot 6/16/2017 11:19",
-	"super" : "SqlObjectInNamespace",
+	"super" : "SqlView",
 	"category" : "PgMetadata-SQL-Model-Objects",
 	"classinstvars" : [ ],
 	"pools" : [ ],

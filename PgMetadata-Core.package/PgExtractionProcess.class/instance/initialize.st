@@ -16,6 +16,7 @@ steps := {
 	PgFunctionExtractor.
 	PgTriggerExtractor.
 	PgFKConstraintExtractor.
+	PgConstraintRoutineExtractor.
 
 	"extract default values"
 	PgDefaultValueExtractor.

@@ -1,3 +1,3 @@
 connection
 close
-	connection close
+	connection ifNotNil: [ connection close ]
